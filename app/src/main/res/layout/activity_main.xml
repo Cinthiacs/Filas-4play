@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D2DCA2"
+    android:padding="30dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/parque_plano_fundo"
+        android:scaleType="centerCrop"
+        android:alpha="0.5"/>
+
+    <TextView
+        android:id="@+id/txt_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filas 4Play"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textColor="#0E0E0E"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:singleLine="false"
+        android:ellipsize="none"
+        android:maxLines="3"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/txt_BalaoMagicoPark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_titulo"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="none"
+        android:gravity="center"
+        android:maxLines="1"
+        android:singleLine="false"
+        android:text="Balão Mágico Park"
+        android:layout_centerInParent="true"
+        android:textColor="#0E0E0E"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/area_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="115dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ainda não é Cadastrado?"
+            android:gravity="center"
+            android:textColor="#0000FF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_cadastro_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clique aqui"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:paddingBottom="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/area_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_abre_tela_Login"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="#FBFBFB"
+            android:padding="12dp"
+            android:text="LOGIN"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

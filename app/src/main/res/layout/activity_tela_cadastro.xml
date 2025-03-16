@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:background="#D2DCA2"
+        android:padding="30dp"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/parque_plano_fundo"
+        android:scaleType="centerCrop"
+        android:alpha="0.1"/>
+
+    <ImageButton
+        android:id="@+id/btn_voltar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_arrow_back"
+        android:tooltipText="Voltar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:contentDescription="Voltar"
+        android:alpha="0.3"/>
+
+
+
+    <TextView
+            android:id="@+id/txt_titulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Balão Mágico Park"
+            android:textColor="#0E0E0E"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginBottom="0dp"/>
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nome:"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/txt_titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <EditText
+            android:id="@+id/cep"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="CEP:"
+            android:inputType="number"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/nome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <Button
+            android:id="@+id/btnBuscarCep"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Buscar CEP"
+            android:backgroundTint="#FBFBFB"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/cep"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="12dp"/>
+
+        <EditText
+            android:id="@+id/logradouro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Rua:"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/btnBuscarCep"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <EditText
+            android:id="@+id/complemento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Complemento:"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/logradouro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <EditText
+            android:id="@+id/bairro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Bairro:"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/complemento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <EditText
+            android:id="@+id/cidade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Cidade:"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/bairro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <EditText
+            android:id="@+id/uf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="UF"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/cidade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+    <TextView
+        android:id="@+id/Publico"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Público:"
+        android:textSize="20sp"
+        android:textColor="#0E0E0E"
+        app:layout_constraintTop_toBottomOf="@id/uf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="8dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/Publico"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp">
+
+        <CheckBox
+            android:id="@+id/check_geral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Geral"
+            android:layout_marginEnd="20dp"/>
+
+        <CheckBox
+            android:id="@+id/check_infantil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Infantil"
+            android:layout_marginEnd="20dp"/>
+        <CheckBox
+            android:id="@+id/check_pcd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PCD"
+            android:layout_marginEnd="15dp"/>
+        <CheckBox
+            android:id="@+id/check_idoso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Idoso"
+            android:layout_marginEnd="25dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#FBFBFB"
+        android:text="Salvar"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Publico"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
