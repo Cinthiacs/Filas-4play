@@ -2,7 +2,7 @@
 
 ## 📌 Sobre o projeto
 
-O Filas-4Play é um aplicativo Android desenvolvido em Java para o Parque de Diversões Balão Mágico. 
+O Filas-4Play é um aplicativo Android desenvolvido em Java para o Parque de **Diversões Balão Mágico**.  
 O app permite a criação e gestão de filas online para brinquedos do parque, facilitando a experiência dos visitantes e otimizando a organização das filas.
 
 ## ✨ Funcionalidades
@@ -25,9 +25,9 @@ O app permite a criação e gestão de filas online para brinquedos do parque, f
 
 📱 Plataforma: Android
 
-📂 Banco de dados: (Definir se usa Firebase, SQLite ou outro)
+📂 Banco de dados: Firebase
 
-🔔 Notificações: (Definir se usa Firebase Cloud Messaging ou outra tecnologia)
+🔔 Notificações: Firebase 
 
 🚀 Como executar o projeto
 
