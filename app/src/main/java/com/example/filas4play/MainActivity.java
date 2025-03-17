@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         btn_cadastro = findViewById(R.id.btn_cadastro_click);
 
         btn_cadastro.setOnClickListener(v ->{
-            Intent intent = new Intent(MainActivity.this, Tela_Cadastro.class);
+            Intent intent = new Intent(MainActivity.this, TelaCadastroActivity.class);
             startActivity(intent);
         });
 
