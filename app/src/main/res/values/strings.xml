@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Filas4Play</string>
+    <string-array name="publico_opcoes">
+        <item>Geral</item>
+        <item>Infantil</item>
+        <item>PCD</item>
+        <item>Idoso</item>
+    </string-array>
 </resources>

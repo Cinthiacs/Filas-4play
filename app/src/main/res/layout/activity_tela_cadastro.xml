@@ -69,10 +69,22 @@
             android:id="@+id/dtnasc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Data Nascimento"
+            android:hint="Data Nascimento:"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@id/nome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
+        <EditText
+            android:id="@+id/contato"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Contato:"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/dtnasc"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginVertical="8dp"/>
@@ -85,7 +97,7 @@
             android:inputType="number"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/dtnasc"
+            app:layout_constraintTop_toBottomOf="@id/contato"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginVertical="8dp"/>
@@ -164,55 +176,27 @@
             android:layout_marginVertical="8dp"/>
 
     <TextView
-        android:id="@+id/Publico"
-        android:layout_width="wrap_content"
+        android:id="@+id/text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Público:"
+        android:text="Selecione o Público:"
+        android:textStyle="bold"
+        android:gravity="left"
         android:textColor="#0E0E0E"
         android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/uf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="0dp"/>
+
+
+    <Spinner
+        android:id="@+id/spinner_publico"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/uf" />
-
-    <CheckBox
-        android:id="@+id/check_geral"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="0dp"
-        android:text="Geral"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@id/Publico"
-        app:layout_constraintTop_toTopOf="@id/Publico" />
-
-    <CheckBox
-        android:id="@+id/check_infantil"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:text="Infantil"
-        app:layout_constraintStart_toEndOf="@id/check_geral"
-        app:layout_constraintTop_toTopOf="@id/check_geral" />
-
-    <CheckBox
-        android:id="@+id/check_pcd"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="8dp"
-        android:text="PCD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/check_geral" />
-
-    <CheckBox
-        android:id="@+id/check_idoso"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="8dp"
-        android:text="Idoso"
-        app:layout_constraintStart_toEndOf="@id/check_pcd"
-        app:layout_constraintTop_toBottomOf="@id/check_infantil" />
 
     <Button
         android:id="@+id/btn_salvar"

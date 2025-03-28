@@ -1,15 +1,14 @@
 package com.example.filas4play;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     TextView btn_cadastro;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
