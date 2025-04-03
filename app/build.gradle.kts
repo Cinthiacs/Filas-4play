@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.firebase.database)
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
 }
 
