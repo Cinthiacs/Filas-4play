@@ -1,6 +1,4 @@
-/*
 package com.example.filas4play.model;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -132,4 +130,3 @@ public class Cliente {
     }
 }
 
-*/
