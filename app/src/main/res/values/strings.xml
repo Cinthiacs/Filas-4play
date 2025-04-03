@@ -1,9 +1,31 @@
 <resources>
+    // Tela Inicial
     <string name="app_name">Filas4Play</string>
-    <string-array name="publico_opcoes">
+    <string name="titulo_filas4play">Filas 4Play</string>
+    <string name="nome_parque">Balão Mágico Park</string>
+    <string name="txt_cadastro">Ainda não é Cadastrado?</string>
+    <string name="clique_aqui">Clique Aqui</string>
+    <string name="login">Login</string>
+
+    // Tela Cadastro
+    <string name="cadastro_nome">Nome:</string>
+    <string name="cadastro_dtnasc">Data Nascimento:</string>
+    <string name="cadastro_contato">Contato</string>
+    <string name="cadastro_cep">CEP:</string>
+    <string name="btn_buscarcep">Buscar</string>
+    <string name="cadastro_rua">Rua:</string>
+    <string name="cadastro_complemento">Complemento:</string>
+    <string name="cadastro_bairro">Bairro:</string>
+    <string name="cadastro_cidade">Cidade:</string>
+    <string name="cadastro_uf">UF:</string>
+
+    <string name="cadastro_publico">Selecione o Publico:</string>
+    <string-array name="publico_array">
         <item>Geral</item>
         <item>Infantil</item>
         <item>PCD</item>
         <item>Idoso</item>
     </string-array>
+
+    <string name="btn_salvar">Salvar</string>
 </resources>

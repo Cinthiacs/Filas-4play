@@ -2,8 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D2DCA2"
@@ -22,7 +20,7 @@
         android:id="@+id/txt_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Filas 4Play"
+        android:text="@string/titulo_filas4play"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:textColor="#0E0E0E"
@@ -45,8 +43,8 @@
         android:gravity="center"
         android:maxLines="1"
         android:singleLine="false"
-        android:text="Balão Mágico Park"
-        android:layout_centerInParent="true"
+        android:text="@string/nome_parque"
+        android:layout_centerHorizontal="true"
         android:textColor="#0E0E0E"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -63,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ainda não é Cadastrado?"
+            android:text="@string/txt_cadastro"
             android:gravity="center"
             android:textColor="#0000FF"
             android:textSize="16sp" />
@@ -72,7 +70,7 @@
             android:id="@+id/btn_cadastro_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clique aqui"
+            android:text="@string/clique_aqui"
             android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="#FF0000"
@@ -97,11 +95,8 @@
             android:layout_marginBottom="0dp"
             android:backgroundTint="#FBFBFB"
             android:padding="12dp"
-            android:text="LOGIN"
+            android:text="@string/login"
             android:textColor="@color/black"
             android:textSize="24sp" />
     </LinearLayout>
-
-
-
 </RelativeLayout>
