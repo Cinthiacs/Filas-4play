@@ -12,7 +12,7 @@
     <string name="cadastro_dtnasc">Data Nascimento:</string>
     <string name="cadastro_contato">Contato</string>
     <string name="cadastro_cep">CEP:</string>
-    <string name="btn_buscarcep">Buscar</string>
+    <string name="btn_buscarcep">Buscar Cep</string>
     <string name="cadastro_rua">Rua:</string>
     <string name="cadastro_complemento">Complemento:</string>
     <string name="cadastro_bairro">Bairro:</string>

@@ -16,7 +16,6 @@ import androidx.activity.EdgeToEdge;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +32,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class TelaCadastroActivity extends AppCompatActivity {
     private EditText edt_nome_register, edt_datanasc_register, edt_contato_register;
@@ -43,11 +45,12 @@ public class TelaCadastroActivity extends AppCompatActivity {
 
     private ViaCepService viaCepService;
     private Retrofit retrofitViaCep;
-    private ImageButton btnVoltar;
+
     Spinner spinnerPublico;
 
     private CheckBox checkGeral, checkInfantil, checkPcd, checkIdoso;
 
+    private FirebaseAuth auth;
     DatabaseReference databaseReference;
 
 
@@ -72,8 +75,6 @@ public class TelaCadastroActivity extends AppCompatActivity {
 
         btnSalvar = findViewById(R.id.btn_salvar);
 
-        btnVoltar = findViewById(R.id.btn_voltar);
-
 
 
         spinnerPublico = findViewById(R.id.spinner_publico);
@@ -85,13 +86,6 @@ public class TelaCadastroActivity extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPublico.setAdapter(adapter);
-
-
-        // Configurando o clique do botão de voltar
-        btnVoltar.setOnClickListener(v -> {
-            Intent intent = new Intent(TelaCadastroActivity.this, MainActivity.class);
-            startActivity(intent);
-        });
 
         retrofitViaCep = new Retrofit.Builder()
                 .baseUrl("https://viacep.com.br/")
