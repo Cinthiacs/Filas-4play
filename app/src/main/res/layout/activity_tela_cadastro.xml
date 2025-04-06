@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -181,10 +181,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/cadastro_email"
+            android:drawableRight="@drawable/ic_email"
             android:ems="10"
             android:textColorHint="#000000"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
+            android:maxLength="25"
             android:inputType="textEmailAddress"
             app:layout_constraintTop_toBottomOf="@id/edt_uf"
             app:layout_constraintStart_toStartOf="parent"
@@ -197,10 +199,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/cadastro_senha"
+            android:drawableRight="@drawable/ic_eye"
             android:textColorHint="#000000"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            android:inputType="textEmailAddress"
+            android:maxLength="25"
+            android:inputType="numberPassword"
             app:layout_constraintTop_toBottomOf="@id/edt_email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -212,10 +216,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/confirma_senha"
+            android:drawableRight="@drawable/ic_eye"
             android:textColorHint="#000000"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            android:inputType="textEmailAddress"
+            android:maxLength="25"
+            android:inputType="numberPassword"
             app:layout_constraintTop_toBottomOf="@id/edt_senha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -275,5 +281,4 @@
             android:layout_marginTop="16dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

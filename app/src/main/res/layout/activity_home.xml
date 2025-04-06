@@ -2,12 +2,11 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D2DCA2"
     android:padding="30dp"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <ImageView
         android:id="@+id/background_image"
@@ -50,62 +49,19 @@
         android:textSize="25dp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edt_email"
+    <TextView
+        android:id="@+id/txt_email_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_BalaoMagicoPark"
-        android:hint="@string/cadastro_email"
-        android:drawableRight="@drawable/ic_email"
-        android:ems="10"
-        android:textColorHint="#000000"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        android:inputType="numberPassword"
-        android:layout_marginVertical="8dp"/>
-
-    <EditText
-        android:id="@+id/edt_senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edt_email"
-        android:hint="@string/cadastro_senha"
-        android:drawableRight="@drawable/ic_eye"
-        android:ems="10"
-        android:textColorHint="#000000"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"
-        android:layout_marginVertical="8dp"/>
-
-    <LinearLayout
-        android:id="@+id/area_cadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="115dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:text="Email do usuário"
+        android:textColor="#0E0E0E"
+        android:textSize="18sp"
+        android:textStyle="italic" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_cadastro"
-            android:gravity="center"
-            android:textColor="#0000FF"
-            android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/btn_cadastro_click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/clique_aqui"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="#FF0000"
-            android:paddingBottom="10dp"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/area_login"
@@ -124,7 +80,7 @@
             android:layout_marginBottom="0dp"
             android:backgroundTint="#FBFBFB"
             android:padding="12dp"
-            android:text="@string/login"
+            android:text="FOI"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -137,5 +93,4 @@
             android:layout_marginTop="16dp"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
-
 </RelativeLayout>
