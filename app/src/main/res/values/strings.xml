@@ -20,6 +20,7 @@
     <string name="cadastro_uf">UF:</string>
     <string name="cadastro_email">Email:</string>
     <string name="cadastro_senha">Senha:</string>
+    <string name="confirma_senha">Confirme sua senha:</string>
 
     <string name="cadastro_publico">Selecione o Publico:</string>
     <string-array name="publico_array">

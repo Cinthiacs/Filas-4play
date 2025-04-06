@@ -2,28 +2,27 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="#D2DCA2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".TelaCadastroActivity">
 
-    <ImageView
-        android:id="@+id/background_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.15"
-        android:scaleType="centerCrop"
-        android:src="@drawable/parque_plano_fundo"
-        tools:layout_editor_absoluteX="-62dp"
-        tools:layout_editor_absoluteY="30dp" />
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.15"
+            android:scaleType="centerCrop"
+            android:src="@drawable/parque_tela_cadastro"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/txt_titulo"
@@ -207,6 +206,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginVertical="8dp"/>
 
+        <EditText
+            android:id="@+id/edt_confirmasenha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/confirma_senha"
+            android:textColorHint="#000000"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@id/edt_senha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="8dp"/>
+
         <TextView
             android:id="@+id/publico_txt"
             android:layout_width="0dp"
@@ -216,10 +230,10 @@
             android:gravity="left"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/edt_senha"
+            app:layout_constraintTop_toBottomOf="@id/edt_confirmasenha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginVertical="0dp"/>
+            android:layout_marginVertical="8dp"/>
 
 
         <Spinner
@@ -248,6 +262,18 @@
             app:layout_constraintTop_toBottomOf="@id/spinner_publico"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/btn_salvar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

@@ -13,6 +13,11 @@ public class Cliente {
     private String bairro;
     private String cidade;
     private String uf;
+
+    private String email;
+
+    private String senha;
+    private String confirmasenha;
     private String tipoPublico;
 
     // Construtor padrão
@@ -21,7 +26,7 @@ public class Cliente {
     }
 
     public Cliente(String nome, String dtnasc, String contato, String cep, String logradouro, String complemento,
-                   String bairro, String cidade, String uf, String tipoPublico) {
+                   String bairro, String cidade, String uf, String email, String senha, String confirmasenha, String tipoPublico) {
         this.id = null;//FirebaseDatabase.getInstance().getReference().push().getKey(); // Gera um ID único
         this.nome = nome;
         this.dtnasc = dtnasc;
@@ -32,7 +37,10 @@ public class Cliente {
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
+        this.email = email;
+        this.senha = senha;
         this.tipoPublico = tipoPublico;
+        this.confirmasenha = confirmasenha;
     }
 
     // Getters e Setters
@@ -116,17 +124,42 @@ public class Cliente {
         this.uf = uf;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String Senha) {
+        this.senha = senha;
+    }
+    public String getConfirmaSenha() {
+        return confirmasenha;
+    }
+
+    public void setConfirmaSenha(String ConfirmaSenha) {
+        this.confirmasenha = ConfirmaSenha;
+    }
+
     public String getTipoPublico() {
         return tipoPublico;
     }
 
-    public void setTipoPublico(String tipoPublico) {
-        this.tipoPublico = tipoPublico;
+    public void setTipoPublico(String TipoPublico) {
+        this.tipoPublico = TipoPublico;
     }
 
     public void salvar() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("cliente").child(this.id).setValue(this);
     }
+
+
 }
 

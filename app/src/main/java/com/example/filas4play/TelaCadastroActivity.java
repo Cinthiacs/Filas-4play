@@ -2,21 +2,16 @@ package com.example.filas4play;
 
 import android.os.Bundle;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.CheckBox;
 import android.widget.Toast;
-import android.widget.ImageButton;
-import android.content.Intent;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
 import androidx.activity.EdgeToEdge;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,16 +25,17 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import android.widget.ProgressBar;
+import android.util.Log;
 
 public class TelaCadastroActivity extends AppCompatActivity {
     private EditText edt_nome_register, edt_datanasc_register, edt_contato_register;
     private EditText edt_cep_register, edt_logradouro_register, edt_complemento_register;
     private EditText edt_bairro_register, edt_cidade_register, edt_uf_register;
+    private EditText edt_email_register, edt_senha_register, edt_confirmasenha_register;
 
     private Button btnBuscarCep, btnSalvar;
 
@@ -47,11 +43,10 @@ public class TelaCadastroActivity extends AppCompatActivity {
     private Retrofit retrofitViaCep;
 
     Spinner spinnerPublico;
+    private ProgressBar progressBar;
+    private FirebaseAuth mAuth;
 
-    private CheckBox checkGeral, checkInfantil, checkPcd, checkIdoso;
 
-    private FirebaseAuth auth;
-    DatabaseReference databaseReference;
 
 
     @Override
@@ -59,7 +54,6 @@ public class TelaCadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tela_cadastro);
-
 
         edt_nome_register = findViewById(R.id.edt_nome);
         edt_datanasc_register = (EditText) findViewById(R.id.edt_dtnasc);
@@ -70,12 +64,13 @@ public class TelaCadastroActivity extends AppCompatActivity {
         edt_bairro_register = findViewById(R.id.edt_bairro);
         edt_cidade_register = findViewById(R.id.edt_cidade);
         edt_uf_register = findViewById(R.id.edt_uf);
-
+        edt_email_register = findViewById(R.id.edt_email);
+        edt_senha_register = findViewById(R.id.edt_senha);
+        edt_confirmasenha_register = findViewById(R.id.edt_confirmasenha);
         btnBuscarCep = findViewById(R.id.btnBuscarCep);
-
         btnSalvar = findViewById(R.id.btn_salvar);
-
-
+        progressBar = findViewById(R.id.progressBar);
+        mAuth = FirebaseAuth.getInstance();
 
         spinnerPublico = findViewById(R.id.spinner_publico);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -138,6 +133,7 @@ public class TelaCadastroActivity extends AppCompatActivity {
             Toast.makeText(TelaCadastroActivity.this, "CEP inválido", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void salvarCliente() {
         Cliente cliente = new Cliente();
 
@@ -150,25 +146,48 @@ public class TelaCadastroActivity extends AppCompatActivity {
         cliente.setUf(edt_uf_register.getText().toString());
         cliente.setDtnasc(edt_datanasc_register.getText().toString());
         cliente.setContato(edt_contato_register.getText().toString());
+        cliente.setEmail(edt_email_register.getText().toString());
+        String senha = edt_senha_register.getText().toString();
+        String confirmarsenha = edt_confirmasenha_register.getText().toString();
         cliente.setTipoPublico(spinnerPublico.getSelectedItem().toString());
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("clientes");
 
-        String clienteId = databaseReference.push().getKey();
+        if (!TextUtils.isEmpty(cliente.getNome()) || !TextUtils.isEmpty(cliente.getDtnasc()) ||
+                !TextUtils.isEmpty(cliente.getContato()) || !TextUtils.isEmpty(cliente.getContato()) ||
+                !TextUtils.isEmpty(cliente.getCep()) || !TextUtils.isEmpty(cliente.getLogradouro()) ||
+                !TextUtils.isEmpty(cliente.getComplemento()) || !TextUtils.isEmpty(cliente.getBairro()) ||
+                !TextUtils.isEmpty(cliente.getCidade()) || !TextUtils.isEmpty(cliente.getUf()) ||
+                !TextUtils.isEmpty(cliente.getEmail()) || !TextUtils.isEmpty(senha) ||
+                !TextUtils.isEmpty(confirmarsenha)) {
 
-        databaseReference.child(clienteId).setValue(cliente).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Cadastro salvo com sucesso!", Toast.LENGTH_SHORT).show();
-                    limparCampos();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Erro ao salvar!", Toast.LENGTH_SHORT).show();
-                }
+            if (senha.equals(confirmarsenha)) {
+                progressBar.setVisibility(View.VISIBLE);
             }
-        });
-    }
 
+            mAuth.createUserWithEmailAndPassword(cliente.getEmail(),senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        cliente.setId(mAuth.getUid());
+                        cliente.salvar();
+                        Log.d("FirebaseDebug", "UID: " + mAuth.getUid());
+
+                        Toast.makeText(getApplicationContext(), "Cadastro salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                        limparCampos();
+
+                    } else {
+                        String error = task.getException().getMessage();
+                        Toast.makeText(TelaCadastroActivity.this, "" + error, Toast.LENGTH_SHORT).show();
+                    }
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+            });
+
+        } else {
+            Toast.makeText(TelaCadastroActivity.this, "A senha deve ser a mesma para ambos os campos", Toast.LENGTH_SHORT).show();
+
+        }
+    }
     private void limparCampos() {
         edt_nome_register.setText("");
         edt_datanasc_register.setText("");
@@ -179,8 +198,10 @@ public class TelaCadastroActivity extends AppCompatActivity {
         edt_bairro_register.setText("");
         edt_cidade_register.setText("");
         edt_uf_register.setText("");
+        edt_email_register.setText("");
+        edt_senha_register.setText("");
+        edt_confirmasenha_register.setText("");
         spinnerPublico.setSelection(0);
     }
+
 }
-
-
