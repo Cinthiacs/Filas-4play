@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fillViewport="true"
     android:background="#D2DCA2">
 
@@ -49,6 +48,8 @@
             app:layout_constraintTop_toBottomOf="@id/txt_titulo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <EditText
@@ -63,6 +64,8 @@
             app:layout_constraintTop_toBottomOf="@id/edt_nome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <EditText
@@ -77,6 +80,8 @@
             app:layout_constraintTop_toBottomOf="@id/edt_dtnasc"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <EditText
@@ -92,6 +97,8 @@
             app:layout_constraintTop_toBottomOf="@id/edt_contato"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <Button
@@ -105,6 +112,8 @@
             app:layout_constraintTop_toBottomOf="@id/edt_cep"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="12dp"/>
 
         <EditText
@@ -118,6 +127,8 @@
             app:layout_constraintTop_toBottomOf="@id/btnBuscarCep"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <EditText
@@ -132,6 +143,8 @@
             app:layout_constraintTop_toBottomOf="@id/edt_logradouro"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <EditText
@@ -146,21 +159,28 @@
             app:layout_constraintTop_toBottomOf="@id/edt_complemento"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+
             android:layout_marginVertical="8dp"/>
 
         <EditText
             android:id="@+id/edt_cidade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="408dp"
+            android:layout_marginEnd="24dp"
             android:hint="@string/cadastro_cidade"
-            android:textColorHint="#000000"
-            android:textColor="#0E0E0E"
-            android:textSize="20sp"
             android:maxLines="1"
-            app:layout_constraintTop_toBottomOf="@id/edt_bairro"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#0E0E0E"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginVertical="8dp"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_bairro" />
 
         <EditText
             android:id="@+id/edt_uf"
@@ -174,24 +194,30 @@
             app:layout_constraintTop_toBottomOf="@id/edt_cidade"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
         <EditText
             android:id="@+id/edt_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/cadastro_email"
+            android:layout_marginVertical="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="312dp"
+            android:layout_marginEnd="24dp"
             android:drawableRight="@drawable/ic_email"
             android:ems="10"
-            android:textColorHint="#000000"
-            android:textColor="#0E0E0E"
-            android:textSize="20sp"
-            android:maxLength="25"
+            android:hint="@string/cadastro_email"
             android:inputType="textEmailAddress"
-            app:layout_constraintTop_toBottomOf="@id/edt_uf"
-            app:layout_constraintStart_toStartOf="parent"
+            android:maxLength="25"
+            android:textColor="#0E0E0E"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginVertical="8dp"/>
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_uf" />
 
         <EditText
             android:id="@+id/edt_senha"
@@ -199,7 +225,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/cadastro_senha"
-            android:drawableRight="@drawable/ic_eye"
             android:textColorHint="#000000"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
@@ -207,8 +232,19 @@
             android:inputType="numberPassword"
             app:layout_constraintTop_toBottomOf="@id/edt_email"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginVertical="8dp"/>
+            app:layout_constraintEnd_toStartOf="@+id/img_toggle_senha" android:layout_marginStart="24dp"
+            android:layout_marginVertical="8dp"
+            android:layout_marginEnd="8dp"/>
+            <ImageView
+            android:id="@+id/img_toggle_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_eye" app:layout_constraintTop_toTopOf="@+id/edt_senha"
+            app:layout_constraintBottom_toBottomOf="@+id/edt_senha"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
             android:id="@+id/edt_confirmasenha"
@@ -216,7 +252,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/confirma_senha"
-            android:drawableRight="@drawable/ic_eye"
             android:textColorHint="#000000"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
@@ -224,8 +259,19 @@
             android:inputType="numberPassword"
             app:layout_constraintTop_toBottomOf="@id/edt_senha"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginVertical="8dp"/>
+            app:layout_constraintEnd_toStartOf="@+id/img_toggle_confirmasenha" android:layout_marginStart="24dp"
+            android:layout_marginVertical="8dp"
+            android:layout_marginEnd="8dp"/>
+            <ImageView
+            android:id="@+id/img_toggle_confirmasenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_eye" app:layout_constraintTop_toTopOf="@+id/edt_confirmasenha"
+            app:layout_constraintBottom_toBottomOf="@+id/edt_confirmasenha"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/publico_txt"
@@ -236,10 +282,13 @@
             android:gravity="left"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
+            android:drawableRight="@drawable/ic_public"
             app:layout_constraintTop_toBottomOf="@id/edt_confirmasenha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginVertical="8dp"/>
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginVertical="24dp"/>
 
 
         <Spinner
@@ -251,6 +300,8 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             app:layout_constraintTop_toBottomOf="@id/publico_txt"/>
 
         <Button
@@ -258,13 +309,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="#FBFBFB"
             android:padding="12dp"
             android:text="@string/btn_salvar"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintTop_toBottomOf="@id/spinner_publico"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -275,10 +328,9 @@
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/btn_salvar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"/>
-
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

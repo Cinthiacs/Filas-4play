@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D2DCA2"
-    android:padding="30dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="40dp"
+    android:paddingBottom="40dp"
     tools:context=".HomeActivity">
 
     <ImageView
@@ -22,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/titulo_filas4play"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
+        android:layout_margin="0dp"
         android:textColor="#0E0E0E"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -56,11 +59,21 @@
         android:layout_below="@id/txt_BalaoMagicoPark"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Email do usuário"
+        android:hint="@string/cadastro_email"
         android:textColor="#0E0E0E"
         android:textSize="18sp"
         android:textStyle="italic" />
-
+    <TextView
+        android:id="@+id/textViewUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/cadastro_nome"
+        android:layout_below="@id/txt_email_usuario"
+        android:gravity="left"
+        android:textColor="#0E0E0E"
+        android:textSize="18sp"
+       />
 
 
     <LinearLayout
@@ -68,29 +81,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="0dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <Button
-            android:id="@+id/btn_abre_tela_Login"
-            android:layout_width="150dp"
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:backgroundTint="#FBFBFB"
-            android:padding="12dp"
-            android:text="FOI"
+            android:padding="5dp"
+            android:text="@string/btn_logout"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_redefinir_senha"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FBFBFB"
+            android:padding="10dp"
+            android:text="@string/btn_redefinir_senha"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/area_login"
+        android:layout_marginTop="-72dp"
+        android:visibility="invisible" />
 </RelativeLayout>

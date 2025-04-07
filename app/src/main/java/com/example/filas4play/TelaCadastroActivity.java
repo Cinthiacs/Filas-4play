@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.text.InputType;
 
 import com.example.filas4play.api.ViaCepService;
 import com.example.filas4play.model.Endereco;
@@ -71,6 +73,13 @@ public class TelaCadastroActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
 
+
+        EditText edtSenha = findViewById(R.id.edt_senha);
+        ImageView imgToggleSenha = findViewById(R.id.img_toggle_senha);
+
+        EditText edtConfirmaSenha = findViewById(R.id.edt_confirmasenha);
+        ImageView imgToggleConfirmar = findViewById(R.id.img_toggle_confirmasenha);
+
         spinnerPublico = findViewById(R.id.spinner_publico);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
@@ -102,6 +111,9 @@ public class TelaCadastroActivity extends AppCompatActivity {
                 salvarCliente();
             }
         });
+
+        configuraToggleSenha(edtSenha, imgToggleSenha);
+        configuraToggleSenha(edtConfirmaSenha, imgToggleConfirmar);
     }
 
     private void buscarCep() {
@@ -131,6 +143,22 @@ public class TelaCadastroActivity extends AppCompatActivity {
         } else {
             Toast.makeText(TelaCadastroActivity.this, "CEP inválido", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void configuraToggleSenha(EditText editText, ImageView toggleIcon) {
+        final boolean[] isVisible = {false};
+
+        toggleIcon.setOnClickListener(v -> {
+            if (isVisible[0]) {
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                toggleIcon.setImageResource(R.drawable.ic_eye);
+            } else {
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                toggleIcon.setImageResource(R.drawable.ic_eye);
+            }
+            editText.setSelection(editText.length());
+            isVisible[0] = !isVisible[0];
+        });
     }
 
     private void salvarCliente() {

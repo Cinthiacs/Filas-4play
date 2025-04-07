@@ -2,7 +2,8 @@ package com.example.filas4play;
 
 import android.os.Bundle;
 import android.content.Intent;
-import android.text.TextUtils;
+import android.text.InputType;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializa Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        ImageView imgToggleSenha = findViewById(R.id.img_toggle_senha);
+
+        final boolean[] isSenhaVisivel = {false};
+
+        imgToggleSenha.setOnClickListener(v -> {
+            if (isSenhaVisivel[0]) {
+                // Ocultar senha
+                edt_senha_register.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                imgToggleSenha.setImageResource(R.drawable.ic_eye); // Ícone de olho fechado
+            } else {
+                // Mostrar senha
+                edt_senha_register.setInputType(InputType.TYPE_CLASS_NUMBER);
+                imgToggleSenha.setImageResource(R.drawable.ic_eye); // Você pode mudar para ic_eye_open se tiver um
+            }
+            edt_senha_register.setSelection(edt_senha_register.length()); // Mantém o cursor no final
+            isSenhaVisivel[0] = !isSenhaVisivel[0];
+        });
 
         // Ações dos botões
         btn_cadastro.setOnClickListener(v -> cadastrar());
