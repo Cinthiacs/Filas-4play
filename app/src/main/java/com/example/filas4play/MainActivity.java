@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView btn_cadastro;
     private EditText edt_email_register, edt_senha_register;
     private Button btn_login;
+
+    private Button btn_funcionarios;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
@@ -32,9 +34,11 @@ public class MainActivity extends AppCompatActivity {
         // Inicializa os elementos da interface
         btn_cadastro = findViewById(R.id.btn_cadastro_click);
         btn_login = findViewById(R.id.btn_abre_tela_Login);
+        btn_funcionarios = findViewById(R.id.btn_funcionario);
         edt_email_register = findViewById(R.id.edt_email);
         edt_senha_register = findViewById(R.id.edt_senha);
         progressBar = findViewById(R.id.progressBar);
+
 
         // Inicializa Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         // Ações dos botões
         btn_cadastro.setOnClickListener(v -> cadastrar());
         btn_login.setOnClickListener(v -> entrar());
+        btn_funcionarios.setOnClickListener(v -> funcionarios());
     }
 
     @Override
@@ -107,4 +112,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, TelaCadastroActivity.class);
         startActivity(i);
     }
+    private void funcionarios(){
+        Intent i = new Intent(MainActivity.this,ItemClienteActivity.class);
+        startActivity(i);
+    }
+
 }

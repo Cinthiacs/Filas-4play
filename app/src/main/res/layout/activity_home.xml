@@ -72,7 +72,7 @@
         android:layout_below="@id/txt_email_usuario"
         android:gravity="left"
         android:textColor="#0E0E0E"
-        android:textSize="18sp"
+        android:textSize="20sp"
        />
 
 
