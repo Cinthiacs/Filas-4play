@@ -75,6 +75,18 @@
         android:textSize="20sp"
        />
 
+    <TextView
+        android:id="@+id/textViewPublico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/txt_publico"
+        android:layout_below="@id/textViewUsuario"
+        android:gravity="left"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp"
+        />
+
 
     <LinearLayout
         android:id="@+id/area_login"

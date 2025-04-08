@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView btn_cadastro;
     private EditText edt_email_register, edt_senha_register;
     private Button btn_login;
-
-    private Button btn_funcionarios;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         // Inicializa os elementos da interface
         btn_cadastro = findViewById(R.id.btn_cadastro_click);
         btn_login = findViewById(R.id.btn_abre_tela_Login);
-        btn_funcionarios = findViewById(R.id.btn_funcionario);
         edt_email_register = findViewById(R.id.edt_email);
         edt_senha_register = findViewById(R.id.edt_senha);
         progressBar = findViewById(R.id.progressBar);
@@ -51,20 +48,28 @@ public class MainActivity extends AppCompatActivity {
             if (isSenhaVisivel[0]) {
                 // Ocultar senha
                 edt_senha_register.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
-                imgToggleSenha.setImageResource(R.drawable.ic_eye); // Ícone de olho fechado
+                imgToggleSenha.setImageResource(R.drawable.ic_eye);
             } else {
                 // Mostrar senha
                 edt_senha_register.setInputType(InputType.TYPE_CLASS_NUMBER);
-                imgToggleSenha.setImageResource(R.drawable.ic_eye); // Você pode mudar para ic_eye_open se tiver um
+                imgToggleSenha.setImageResource(R.drawable.ic_eye);
             }
-            edt_senha_register.setSelection(edt_senha_register.length()); // Mantém o cursor no final
+            edt_senha_register.setSelection(edt_senha_register.length());
             isSenhaVisivel[0] = !isSenhaVisivel[0];
         });
 
         // Ações dos botões
         btn_cadastro.setOnClickListener(v -> cadastrar());
-        btn_login.setOnClickListener(v -> entrar());
-        btn_funcionarios.setOnClickListener(v -> funcionarios());
+
+        btn_login.setOnClickListener(v -> {
+            String email = edt_email_register.getText().toString();
+
+            if (email.equalsIgnoreCase("funcionario@balaomagico.com")) {
+                funcionarios();
+            } else {
+                entrar(); // login do cliente
+            }
+        });
     }
 
     @Override
@@ -73,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             // Ir para próxima tela se já estiver logado
-            Intent i = new Intent(getApplicationContext(), HomeActivity.class); // Altere para sua tela principal
+            Intent i = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(i);
             finish();
         }
@@ -84,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         String email = edt_email_register.getText().toString();
         String senha = edt_senha_register.getText().toString();
 
-        if (email.isEmpty() || senha.isEmpty()) {
-            Toast.makeText(MainActivity .this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show();
+        if (email.isEmpty() && senha.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
                         // Login bem-sucedido
-                        Intent i = new Intent(getApplicationContext(), HomeActivity.class); // Ir para a tela principal
+                        Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(i);
                         finish();
                     } else {
@@ -112,9 +117,29 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, TelaCadastroActivity.class);
         startActivity(i);
     }
-    private void funcionarios(){
-        Intent i = new Intent(MainActivity.this,ItemClienteActivity.class);
-        startActivity(i);
-    }
 
+    private void funcionarios() {
+
+        String emailFuncionario = edt_email_register.getText().toString();
+        String senhaFuncionario = edt_senha_register.getText().toString();
+
+        if (senhaFuncionario.equals("123456")) {
+            progressBar.setVisibility(View.VISIBLE);
+
+            mAuth.signInWithEmailAndPassword(emailFuncionario, senhaFuncionario)
+                    .addOnCompleteListener(task -> {
+                        progressBar.setVisibility(View.GONE);
+
+                        if (task.isSuccessful()) {
+                            Intent i = new Intent(MainActivity.this, ListaClientesActivity.class);
+                            startActivity(i);
+                            finish();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Falha no login do funcionário", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(MainActivity.this, "Senha incorreta para funcionário.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

@@ -198,26 +198,25 @@
             android:layout_marginEnd="24dp"
             android:layout_marginVertical="8dp"/>
 
-        <EditText
-            android:id="@+id/edt_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="312dp"
-            android:layout_marginEnd="24dp"
-            android:drawableRight="@drawable/ic_email"
-            android:ems="10"
-            android:hint="@string/cadastro_email"
-            android:inputType="textEmailAddress"
-            android:maxLength="25"
-            android:textColor="#0E0E0E"
-            android:textColorHint="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_uf" />
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="312dp"
+                android:layout_marginEnd="24dp"
+                android:drawableRight="@drawable/ic_email"
+                android:ems="10"
+                android:hint="@string/cadastro_email"
+                android:inputType="textEmailAddress"
+                android:textColor="#0E0E0E"
+                android:textColorHint="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_uf" />
 
         <EditText
             android:id="@+id/edt_senha"
@@ -242,7 +241,8 @@
             android:layout_marginEnd="24dp"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/ic_eye" app:layout_constraintTop_toTopOf="@+id/edt_senha"
+            android:src="@drawable/ic_eye"
+            app:layout_constraintTop_toTopOf="@+id/edt_senha"
             app:layout_constraintBottom_toBottomOf="@+id/edt_senha"
             app:layout_constraintEnd_toEndOf="parent" />
 

@@ -8,10 +8,13 @@
     <string name="funcionarios">Funcionarios</string>
     <string name="login">Login</string>
 
+    // Tela Item Cliente
+    <string name="txt_publico">Público:</string>
+
     // Tela Cadastro
     <string name="cadastro_nome">Nome:</string>
     <string name="cadastro_dtnasc">Data Nascimento:</string>
-    <string name="cadastro_contato">Contato</string>
+    <string name="cadastro_contato">Contato:</string>
     <string name="cadastro_cep">CEP:</string>
     <string name="btn_buscarcep">Buscar Cep</string>
     <string name="cadastro_rua">Rua:</string>

@@ -1,6 +1,8 @@
 package com.example.filas4play;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +19,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ItemClienteActivity extends AppCompatActivity {
 
-    private TextView itemNome, itemDtnasc, itemEndereco, itemCep;
+    private TextView txtDtnasc, txtEndereco, txtCep, txtContato;
+    private TextView txtPublico;
+    private TextView txtNomeUsuario;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +30,15 @@ public class ItemClienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_cliente);
 
         // Pegando os elementos do XML
-        itemNome = findViewById(R.id.item_nome);
-        itemDtnasc = findViewById(R.id.item_dtnasc);
-        itemEndereco = findViewById(R.id.item_endereco);
-        itemCep = findViewById(R.id.item_cep);
+        txtPublico = findViewById(R.id.textViewPublico);
+        txtNomeUsuario = findViewById(R.id.txtNomeUsuario);
+        txtContato = findViewById(R.id.txtContato);
+        txtDtnasc = findViewById(R.id.txtNascimento);
+        txtEndereco = findViewById(R.id.txtEndereco);
+        txtCep = findViewById(R.id.txtCep);
 
-        // Pegando o usuário logado
+        mAuth = FirebaseAuth.getInstance();
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String userId = user.getUid();
@@ -38,34 +46,53 @@ public class ItemClienteActivity extends AppCompatActivity {
 
             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                public void onDataChange(DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         String nome = snapshot.child("nome").getValue(String.class);
-                        String dtnasc = snapshot.child("dtnasc").getValue(String.class);
+                        String publico = snapshot.child("tipoPublico").getValue(String.class);
+                        String contato = snapshot.child("contato").getValue(String.class);
                         String logradouro = snapshot.child("logradouro").getValue(String.class);
                         String complemento = snapshot.child("complemento").getValue(String.class);
                         String bairro = snapshot.child("bairro").getValue(String.class);
                         String cidade = snapshot.child("cidade").getValue(String.class);
                         String uf = snapshot.child("uf").getValue(String.class);
-                        String cep = snapshot.child("cep").getValue(String.class);
+                        String dtnasc = snapshot.child("dtnasc").getValue(String.class);
 
-                        itemNome.setText("Nome: " + nome);
-                        itemDtnasc.setText("Data de nascimento: " + dtnasc);
                         String enderecoCompleto = logradouro + ", " +
                                 (complemento.isEmpty() ? "" : complemento + ", ") +
                                 bairro + ", " +
-                                cidade + " - " + uf + ", " +
-                                "CEP: " + cep;
+                                cidade + " - " + uf + ", ";
 
-                        itemEndereco.setText("Endereço: " + enderecoCompleto);
+                        String cep = snapshot.child("cep").getValue(String.class);
+
+                        txtNomeUsuario.setText("Nome: " + nome);
+                        txtPublico.setText("Publico: " + publico);
+                        txtContato.setText("Contato " + contato);
+                        txtDtnasc.setText("Data Nascimento " + dtnasc);
+                        txtEndereco.setText("Endereço: " + enderecoCompleto);
+
+                        txtCep.setText("CEP " + cep);
+
+                    } else {
+                        txtNomeUsuario.setText("Nome não encontrado");
+                        txtPublico.setText("Publico não encontrado");
                     }
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(ItemClienteActivity.this, "Erro ao carregar os dados", Toast.LENGTH_SHORT).show();
+                public void onCancelled(DatabaseError error) {
+                    Toast.makeText(ItemClienteActivity.this, "Erro ao carregar nome", Toast.LENGTH_SHORT).show();
                 }
             });
+        } else {
+            Toast.makeText(ItemClienteActivity.this, "Usuário não logado. Redirecionando...", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(ItemClienteActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+
         }
+
     }
 }

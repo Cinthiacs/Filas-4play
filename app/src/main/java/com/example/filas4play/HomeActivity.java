@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
     public class HomeActivity extends AppCompatActivity {
 
     private TextView txtEmailUsuario;
-
+    private TextView txtPublico;
     private TextView txtNomeUsuario;
     private Button btn_logout;
     private FirebaseAuth mAuth;
@@ -32,7 +32,10 @@ import com.google.firebase.database.ValueEventListener;
         setContentView(R.layout.activity_home);
 
         txtEmailUsuario = findViewById(R.id.txt_email_usuario);
+        txtPublico = findViewById(R.id.textViewPublico);
         txtNomeUsuario = findViewById(R.id.textViewUsuario);
+
+
         btn_logout = findViewById(R.id.btn_logout);
         btn_redefinir_senha = findViewById(R.id.btn_redefinir_senha);
         mAuth = FirebaseAuth.getInstance();
@@ -46,15 +49,17 @@ import com.google.firebase.database.ValueEventListener;
 
             txtEmailUsuario.setText("Email: " + email);
 
-            // Aqui é onde você busca o nome
             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         String nome = snapshot.child("nome").getValue(String.class);
+                        String publico = snapshot.child("tipoPublico").getValue(String.class);
                         txtNomeUsuario.setText("🎉 Bem-vindo(a): " + nome);
+                        txtPublico.setText("Publico: " + publico);
                     } else {
                         txtNomeUsuario.setText("Nome não encontrado");
+                        txtPublico.setText("Publico não encontrado");
                     }
                 }
 

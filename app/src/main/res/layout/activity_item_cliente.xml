@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:background="#D2DCA2">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_item_cliente">
+    android:background="#D2DCA2">
 
     <ImageView
         android:id="@+id/background_image"
@@ -21,68 +11,74 @@
         android:alpha="0.15"
         android:scaleType="centerCrop"
         android:src="@drawable/parque_tela_cadastro"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:contentDescription="Imagem de fundo do parque" />
 
-        <TextView
-            android:id="@+id/txt_titulo"
-            android:layout_width="0dp"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nome_parque"
-            android:textColor="#0E0E0E"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="45dp"/>
-    <TextView
-        android:id="@+id/item_nome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/cadastro_nome"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/txt_titulo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginVertical="40dp"/>
-    <TextView
-        android:id="@+id/item_dtnasc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/cadastro_dtnasc"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/item_nome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginVertical="8dp"/>
+            android:orientation="vertical"
+            android:layout_marginTop="24dp">
 
-    <TextView
-        android:id="@+id/item_endereco"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/cadastro_rua"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/item_dtnasc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginVertical="8dp"/>
+            <TextView
+                android:id="@+id/txtNomeUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cadastro_nome"
+                android:textSize="20sp"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="12dp"/>
 
-    <TextView
-        android:id="@+id/item_cep"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/cadastro_cep"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/item_endereco"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginVertical="8dp"/>
+            <TextView
+                android:id="@+id/textViewPublico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/txt_publico"
+                android:textSize="20sp"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="12dp"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/txtContato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cadastro_contato"
+                android:textSize="20sp"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/txtNascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cadastro_dtnasc"
+                android:textSize="20sp"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/txtEndereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cadastro_rua"
+                android:textSize="20sp"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/txtCep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cadastro_cep"
+                android:textSize="20sp"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -179,12 +179,12 @@ public class TelaCadastroActivity extends AppCompatActivity {
         cliente.setTipoPublico(spinnerPublico.getSelectedItem().toString());
 
 
-        if (!TextUtils.isEmpty(cliente.getNome()) || !TextUtils.isEmpty(cliente.getDtnasc()) ||
-                !TextUtils.isEmpty(cliente.getContato()) || !TextUtils.isEmpty(cliente.getContato()) ||
-                !TextUtils.isEmpty(cliente.getCep()) || !TextUtils.isEmpty(cliente.getLogradouro()) ||
-                !TextUtils.isEmpty(cliente.getComplemento()) || !TextUtils.isEmpty(cliente.getBairro()) ||
-                !TextUtils.isEmpty(cliente.getCidade()) || !TextUtils.isEmpty(cliente.getUf()) ||
-                !TextUtils.isEmpty(cliente.getEmail()) || !TextUtils.isEmpty(senha) ||
+        if (!TextUtils.isEmpty(cliente.getNome()) && !TextUtils.isEmpty(cliente.getDtnasc()) &&
+                !TextUtils.isEmpty(cliente.getContato()) && !TextUtils.isEmpty(cliente.getContato()) &&
+                !TextUtils.isEmpty(cliente.getCep()) && !TextUtils.isEmpty(cliente.getLogradouro()) &&
+                !TextUtils.isEmpty(cliente.getComplemento()) && !TextUtils.isEmpty(cliente.getBairro()) &&
+                !TextUtils.isEmpty(cliente.getCidade()) && !TextUtils.isEmpty(cliente.getUf()) &&
+                !TextUtils.isEmpty(cliente.getEmail()) && !TextUtils.isEmpty(senha) &&
                 !TextUtils.isEmpty(confirmarsenha)) {
 
             if (senha.equals(confirmarsenha)) {

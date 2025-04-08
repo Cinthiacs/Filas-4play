@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Filas4Play"
         tools:targetApi="35">
-
+        <activity
+            android:name=".ListaClientesActivity"
+            android:exported="false" />
         <activity
             android:name=".ItemClienteActivity"
             android:exported="false" />

@@ -114,7 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_email"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="353dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -143,16 +143,6 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_funcionario"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#FBFBFB"
-                android:text="@string/funcionarios"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/btn_abre_tela_Login"
