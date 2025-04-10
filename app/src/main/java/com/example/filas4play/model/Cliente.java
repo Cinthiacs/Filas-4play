@@ -43,6 +43,7 @@ public class Cliente {
         this.confirmasenha = confirmasenha;
     }
 
+
     // Getters e Setters
     public String getId() {
         return id;

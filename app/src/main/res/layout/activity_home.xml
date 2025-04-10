@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/parque_plano_fundo"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:alpha="0.4"/>
+        android:scaleType="center"
+        android:alpha="0.2"/>
 
     <TextView
         android:id="@+id/txt_titulo"
@@ -72,10 +72,10 @@
         android:id="@+id/textViewUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:hint="@string/cadastro_nome"
         android:layout_below="@id/txt_email_usuario"
-        android:gravity="left"
+        android:gravity="center"
         android:textColor="#0E0E0E"
         android:textSize="20sp" />
 
@@ -84,29 +84,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewUsuario"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:hint="@string/txt_publico"
         android:textColor="#0E0E0E"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/nomeBrinquedo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewPublico"
-        android:layout_marginTop="2dp"
-        android:gravity="left"
-        android:text="Nome Brinquedo:"
-        android:textColor="#0E0E0E"
-        android:textSize="20sp" />
-
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nomeBrinquedo"
+        android:layout_below="@id/textViewPublico"
         android:layout_marginTop="5dp" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -140,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:text="Balão"
                 android:id="@+id/rbBalao"
-                android:checked="true"/>
+                android:checked="false"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -164,6 +152,19 @@
                 android:checked="false"/>
     </RadioGroup>
 
+    <Button
+        android:id="@+id/btn_fila"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FBFBFB"
+        android:layout_below="@id/rgBrinquedos"
+        android:padding="5dp"
+        android:text="@string/txt_entrar_Fila"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
     <LinearLayout
         android:id="@+id/area_login"
         android:layout_width="match_parent"
@@ -171,7 +172,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="0dp"
-        android:layout_below="@id/rgBrinquedos"
+        android:layout_below="@id/btn_fila"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp">

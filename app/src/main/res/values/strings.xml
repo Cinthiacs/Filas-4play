@@ -11,6 +11,7 @@
     // Tela Item Cliente
     <string name="txt_publico">Público:</string>
 
+
     // Tela Cadastro
     <string name="cadastro_nome">Nome:</string>
     <string name="cadastro_dtnasc">Data Nascimento:</string>
@@ -29,7 +30,7 @@
     // Tela Home
     <string name="btn_logout">Logout</string>
     <string name="btn_redefinir_senha">Redefinir Senha</string>
-
+    <string name="txt_entrar_Fila">Entar na Fila</string>
     <string name="cadastro_publico">Selecione o Publico:</string>
     <string-array name="publico_array">
         <item>Geral</item>
@@ -37,6 +38,10 @@
         <item>PCD</item>
         <item>Idoso</item>
     </string-array>
+
+    // Tela Fila
+    <string name="confirma_posicao">Posição:</string>
+    <string name="btn_sair_fila">Sair da Fila</string>
 
     <string name="btn_salvar">Salvar</string>
 </resources>

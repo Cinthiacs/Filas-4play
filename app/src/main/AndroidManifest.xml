@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Filas4Play"
         tools:targetApi="35">
         <activity
+            android:name=".FilaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListaClientesActivity"
             android:exported="false" />
         <activity

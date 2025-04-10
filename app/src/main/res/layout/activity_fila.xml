@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D2DCA2"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="40dp"
+    android:paddingBottom="5dp"
+    tools:context=".HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/parque_plano_fundo"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:alpha="0.2"/>
+
+        <TextView
+            android:id="@+id/txt_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_filas4play"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="0dp"
+            android:textColor="#0E0E0E"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:singleLine="false"
+            android:ellipsize="none"
+            android:maxLines="3"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/txt_BalaoMagicoPark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_titulo"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="false"
+            android:text="@string/nome_parque"
+            android:layout_centerHorizontal="true"
+            android:textColor="#0E0E0E"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:hint="@string/cadastro_nome"
+            android:layout_below="@id/txt_BalaoMagicoPark"
+            android:gravity="left"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewPublico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewUsuario"
+            android:layout_marginTop="0dp"
+            android:gravity="left"
+            android:hint="@string/txt_publico"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewPosicao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewPublico"
+            android:layout_marginTop="30dp"
+            android:gravity="left"
+            android:hint="@string/confirma_posicao"
+            android:textColor="#0E0E0E"
+            android:textStyle="bold"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/btn_sair_fila"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="385dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FBFBFB"
+            android:layout_below="@id/textViewPosicao"
+            android:padding="5dp"
+            android:text="@string/btn_sair_fila"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
