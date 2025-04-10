@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D2DCA2"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
     android:paddingTop="40dp"
-    android:paddingBottom="40dp"
+    android:paddingBottom="5dp"
     tools:context=".HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/parque_plano_fundo"
-        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:alpha="0.4"/>
 
     <TextView
@@ -57,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_BalaoMagicoPark"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:gravity="center"
         android:hint="@string/cadastro_email"
         android:textColor="#0E0E0E"
@@ -67,34 +72,106 @@
         android:id="@+id/textViewUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:hint="@string/cadastro_nome"
         android:layout_below="@id/txt_email_usuario"
         android:gravity="left"
         android:textColor="#0E0E0E"
-        android:textSize="20sp"
-       />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewPublico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="@string/txt_publico"
         android:layout_below="@id/textViewUsuario"
+        android:layout_marginTop="0dp"
         android:gravity="left"
+        android:hint="@string/txt_publico"
         android:textColor="#0E0E0E"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/nomeBrinquedo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPublico"
+        android:layout_marginTop="2dp"
+        android:gravity="left"
+        android:text="Nome Brinquedo:"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nomeBrinquedo"
+        android:layout_marginTop="5dp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/brinquedosViewPager"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_below="@id/tabLayout"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textViewEscolhaBrinquedos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/brinquedosViewPager"
+        android:layout_marginTop="23dp"
+        android:text="Escolha seu Brinquedo: "
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgBrinquedos"
+        android:layout_below="@id/textViewEscolhaBrinquedos"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Balão"
+                android:id="@+id/rbBalao"
+                android:checked="true"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carrossel"
+                android:id="@+id/rbCarrossel"
+                android:checked="false"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roda Gigante"
+                android:id="@+id/rbRodaGigante"
+                android:checked="false"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loop"
+                android:id="@+id/rbMontanhaRussa"
+                android:checked="false"/>
+    </RadioGroup>
 
     <LinearLayout
         android:id="@+id/area_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="0dp"
+        android:layout_below="@id/rgBrinquedos"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp">
@@ -122,14 +199,17 @@
             android:text="@string/btn_redefinir_senha"
             android:textColor="@color/black"
             android:textSize="18sp" />
+
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/area_login"
-        android:layout_marginTop="-72dp"
-        android:visibility="invisible" />
-</RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="38dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="-30dp"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

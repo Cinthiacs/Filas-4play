@@ -1,12 +1,19 @@
 package com.example.filas4play;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Button;
 import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.filas4play.adapter.BrinquedoAdapter;
+import com.example.filas4play.model.Brinquedo;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import android.widget.Toast;
@@ -16,15 +23,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-    public class HomeActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "HomeActivity";
 
     private TextView txtEmailUsuario;
     private TextView txtPublico;
     private TextView txtNomeUsuario;
+
     private Button btn_logout;
     private FirebaseAuth mAuth;
 
     private Button btn_redefinir_senha;
+
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
+
+    private List<Integer> imagensBrinquedos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +52,28 @@ import com.google.firebase.database.ValueEventListener;
         txtPublico = findViewById(R.id.textViewPublico);
         txtNomeUsuario = findViewById(R.id.textViewUsuario);
 
-
         btn_logout = findViewById(R.id.btn_logout);
         btn_redefinir_senha = findViewById(R.id.btn_redefinir_senha);
-        mAuth = FirebaseAuth.getInstance();
+
+        viewPager = findViewById(R.id.brinquedosViewPager);
+        tabLayout = findViewById(R.id.tabLayout);
+
+        List<Brinquedo> brinquedos = new ArrayList<>();
+        brinquedos.add(new Brinquedo("Balão", R.drawable.balao_passeio));
+        brinquedos.add(new Brinquedo("Carrossel", R.drawable.carrossel_gigante));
+        brinquedos.add(new Brinquedo("Roda Gigante", R.drawable.roda_gigante));
+        brinquedos.add(new Brinquedo("Loop", R.drawable.montanha_russa));
+
+        BrinquedoAdapter adapter = new BrinquedoAdapter(this, brinquedos);
+        viewPager.setAdapter(adapter);
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    tab.setText(brinquedos.get(position).getNome());
+                }).attach();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
 
         if (user != null) {
             String userId = user.getUid();
@@ -74,7 +107,6 @@ import com.google.firebase.database.ValueEventListener;
         }
 
 
-
         btn_logout.setOnClickListener(v -> {
             mAuth.signOut();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -86,7 +118,6 @@ import com.google.firebase.database.ValueEventListener;
             redefinirSenha();
         });
     }
-
     private void redefinirSenha() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String emailAddress = user.getEmail();
