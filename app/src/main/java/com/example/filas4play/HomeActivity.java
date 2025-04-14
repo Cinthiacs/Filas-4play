@@ -26,8 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import java.util.List;
 import java.util.Locale;
+
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
@@ -102,6 +104,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Criação da lista de brinquedos para exibir no ViewPager
         String dataHoje = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
         List<Brinquedo> brinquedos = new ArrayList<>();
         brinquedos.add(new Brinquedo("Balão", R.drawable.balao_passeio));
         brinquedos.add(new Brinquedo("Carrossel", R.drawable.carrossel_gigante));
@@ -118,54 +121,31 @@ public class HomeActivity extends AppCompatActivity {
                     tab.setText(brinquedos.get(position).getNome());
                 }).attach();
 
-        // Ação do botão para adicionar à fila
         btnFila.setOnClickListener(v -> {
             int selectId = rgBbrinquedos.getCheckedRadioButtonId();
 
             if (selectId != -1) {
                 RadioButton radioButton = findViewById(selectId);
                 String nomeBrinquedo = radioButton.getText().toString();
-                int drawableId = getDrawableIdByBrinquedo(nomeBrinquedo);  // Obtém o ID da imagem correspondente
 
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                DatabaseReference refHistorico = FirebaseDatabase.getInstance().getReference("historico")
-                        .child(userId)
-                        .child(dataHoje);
+                String dataHoraCompleta = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
+                int drawableId = getDrawableIdByBrinquedo(nomeBrinquedo); // Obtenha o drawableId
 
-                // Verifica se já existe um registro com o brinquedo para o dia
-                refHistorico.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            // Verifica se o brinquedo já foi registrado para o dia
-                            boolean brinquedoExistente = false;
-                            for (DataSnapshot brinquedoSnapshot : snapshot.getChildren()) {
-                                String brinquedoNome = brinquedoSnapshot.child("nome").getValue(String.class);
-                                if (brinquedoNome != null && brinquedoNome.equals(nomeBrinquedo)) {
-                                    brinquedoExistente = true;
-                                    break;
-                                }
-                            }
-                            if (!brinquedoExistente) {
-                                // Adiciona o brinquedo se não existir
-                                refHistorico.push().setValue(new Brinquedo(nomeBrinquedo, drawableId));
+                DatabaseReference refHistorico = FirebaseDatabase.getInstance().getReference("historico").push();
+
+                // Crie um objeto Brinquedo com os campos corretos
+                Brinquedo brinquedoVisitado = new Brinquedo(nomeBrinquedo, drawableId, userId, dataHoraCompleta);
+
+                refHistorico.setValue(brinquedoVisitado) // Salve o objeto Brinquedo
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Intent intent = new Intent(HomeActivity.this, FilaActivity.class);
+                                startActivity(intent);
                             } else {
-                                Toast.makeText(HomeActivity.this, "Brinquedo já foi adicionado hoje.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(HomeActivity.this, "Erro ao adicionar brinquedo.", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-
-                            refHistorico.push().setValue(new Brinquedo(nomeBrinquedo, drawableId));
-                        }
-
-                        Intent intent = new Intent(HomeActivity.this, FilaActivity.class);  // Certifique-se de que a Activity Fila está criada
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        Toast.makeText(HomeActivity.this, "Erro ao verificar histórico.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        });
             } else {
                 Toast.makeText(HomeActivity.this, "Por favor, selecione um brinquedo", Toast.LENGTH_SHORT).show();
             }
@@ -213,7 +193,7 @@ public class HomeActivity extends AppCompatActivity {
             case "Loop":
                 return R.drawable.montanha_russa;
             default:
-                return -1;  // Caso não encontre o nome do brinquedo
+                return -1;
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.filas4play;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,9 +38,11 @@ public class ListaClientesActivity extends AppCompatActivity {
         listaClientes = new ArrayList<>();
         clienteAdapter = new ClienteAdapter(listaClientes);
         recyclerClientes.setLayoutManager(new LinearLayoutManager(this));
+
+        // Assegure-se de configurar o adaptador primeiro
         recyclerClientes.setAdapter(clienteAdapter);
 
-        carregarClientes();
+        carregarClientes();  // Agora a carga dos dados pode ser realizada após a configuração
     }
 
     private void carregarClientes() {
@@ -52,6 +55,7 @@ public class ListaClientesActivity extends AppCompatActivity {
                 for (DataSnapshot clienteSnapshot : snapshot.getChildren()) {
                     Cliente cliente = clienteSnapshot.getValue(Cliente.class);
                     if (cliente != null) {
+
                         listaClientes.add(cliente);
                     }
                 }
@@ -64,4 +68,5 @@ public class ListaClientesActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -10,6 +10,7 @@
 
     // Tela Item Cliente
     <string name="txt_publico">Público:</string>
+    <string name="txt_historico">Historico:</string>
 
 
     // Tela Cadastro

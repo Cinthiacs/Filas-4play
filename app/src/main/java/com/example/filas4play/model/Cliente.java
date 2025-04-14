@@ -2,6 +2,8 @@ package com.example.filas4play.model;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 public class Cliente {
     private String id;
     private String dtnasc;
@@ -20,6 +22,8 @@ public class Cliente {
     private String confirmasenha;
     private String tipoPublico;
 
+    private List<String> historico;
+
     // Construtor padrão
     public Cliente() {
 
@@ -27,7 +31,7 @@ public class Cliente {
 
     public Cliente(String nome, String dtnasc, String contato, String cep, String logradouro, String complemento,
                    String bairro, String cidade, String uf, String email, String senha, String confirmasenha, String tipoPublico) {
-        this.id = null;//FirebaseDatabase.getInstance().getReference().push().getKey(); // Gera um ID único
+        this.id = null;
         this.nome = nome;
         this.dtnasc = dtnasc;
         this.contato = contato;
@@ -156,11 +160,53 @@ public class Cliente {
         this.tipoPublico = TipoPublico;
     }
 
+    public List<String> getHistorico() {
+        return historico;
+    }
+
+    public void setHistorico(List<String> historico) {
+        this.historico = historico;
+    }
+
+
+
+
     public void salvar() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("cliente").child(this.id).setValue(this);
     }
 
+    public static class Historico {
+        private String nome;
+        private String dataHora;
 
+
+        public Historico() {}
+
+        public Historico(String nome, String dataHora) {
+            this.nome = nome;
+            this.dataHora = dataHora;
+        }
+
+        // Getters e Setters
+        public String getNome() {
+            return nome;
+        }
+
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+
+        public String getDataHora() {
+            return dataHora;
+        }
+
+        public void setDataHora(String dataHora) {
+            this.dataHora = dataHora;
+        }
+    }
 }
+
+
+
 
