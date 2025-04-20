@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D2DCA2"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
     android:paddingTop="45dp"
-    android:paddingBottom="45dp"
+    android:paddingBottom="5dp"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/background_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/parque_plano_fundo"
+        android:layout_width="wrap_content"
+        android:layout_height=  "wrap_content"
+        android:layout_centerInParent="true"
+        android:alpha="0.4"
         android:scaleType="centerCrop"
-        android:alpha="0.4"/>
+        android:src="@drawable/parque_plano_fundo" />
 
     <TextView
         android:id="@+id/txt_titulo"
@@ -111,10 +113,12 @@
 
     <LinearLayout
         android:id="@+id/area_cadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="391dp"
+        android:layout_height="109dp"
         android:layout_below="@id/layout_email"
-        android:layout_marginTop="353dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="415dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -124,13 +128,14 @@
             android:gravity="center"
             android:text="@string/txt_cadastro"
             android:textColor="#0000FF"
-            android:textSize="16sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/btn_cadastro_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
+            android:background="#FAF0B0"
             android:text="@string/clique_aqui"
             android:textColor="#FF0000"
             android:textSize="20sp"
@@ -147,12 +152,13 @@
             <Button
                 android:id="@+id/btn_abre_tela_Login"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:backgroundTint="#FBFBFB"
-                android:padding="12dp"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="18dp"
                 android:text="@string/login"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <ProgressBar

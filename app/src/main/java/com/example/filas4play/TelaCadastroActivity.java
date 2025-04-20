@@ -184,33 +184,42 @@ public class TelaCadastroActivity extends AppCompatActivity {
                 !TextUtils.isEmpty(cliente.getEmail()) && !TextUtils.isEmpty(senha) &&
                 !TextUtils.isEmpty(confirmarsenha)) {
 
-            if (senha.equals(confirmarsenha)) {
-                progressBar.setVisibility(View.VISIBLE);
+            if (!senha.equals(confirmarsenha)) {
+                Toast.makeText(TelaCadastroActivity.this, "A senha deve ser a mesma para ambos os campos", Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            mAuth.createUserWithEmailAndPassword(cliente.getEmail(),senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        cliente.setId(mAuth.getUid());
-                        cliente.salvar();
-                        Log.d("FirebaseDebug", "UID: " + mAuth.getUid());
+            if (senha.length() < 6) {
+                Toast.makeText(TelaCadastroActivity.this, "A senha deve ter no mínimo 6 caracteres", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                        Toast.makeText(getApplicationContext(), "Cadastro salvo com sucesso!", Toast.LENGTH_SHORT).show();
-                        limparCampos();
+            progressBar.setVisibility(View.VISIBLE);
 
-                    } else {
-                        String error = task.getException().getMessage();
-                        Toast.makeText(TelaCadastroActivity.this, "" + error, Toast.LENGTH_SHORT).show();
-                    }
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
-            });
+            mAuth.createUserWithEmailAndPassword(cliente.getEmail(), senha)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                cliente.setId(mAuth.getUid());
+                                cliente.salvar();
+                                Log.d("FirebaseDebug", "UID: " + mAuth.getUid());
+
+                                Toast.makeText(getApplicationContext(), "Cadastro salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                                limparCampos();
+
+                            } else {
+                                String error = task.getException().getMessage();
+                                Toast.makeText(TelaCadastroActivity.this, "" + error, Toast.LENGTH_SHORT).show();
+                            }
+                            progressBar.setVisibility(View.INVISIBLE);
+                        }
+                    });
 
         } else {
-            Toast.makeText(TelaCadastroActivity.this, "A senha deve ser a mesma para ambos os campos", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(TelaCadastroActivity.this, "Preencha todos os campos obrigatórios", Toast.LENGTH_SHORT).show();
         }
+
     }
     private void limparCampos() {
         edt_nome_register.setText("");
