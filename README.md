@@ -12,8 +12,7 @@ O app permite a criação e gestão de filas online para brinquedos do parque, f
 ✅ Filas específicas para PCDs, idosos e público geral  
 ✅ Notificação quando é a vez do visitante  
 ✅ Exibição da posição do usuário na fila  
-✅ Possibilidade de exclusão da fila  
-✅ Gestão por funcionários para chamar visitantes e pular caso não compareçam  
+✅ Possibilidade de saída da fila
 
 ---
 
