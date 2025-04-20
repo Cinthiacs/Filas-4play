@@ -57,7 +57,7 @@ O app permite a criação e gestão de filas online para brinquedos do parque, f
 
 Você pode visualizar o protótipo interativo clicando no link abaixo:
 
-👉 [Acesse o protótipo no Figma][(https://www.figma.com/file/SEU-LINK-AQUI)](https://www.figma.com/proto/OMzwqIzi4bEUnXrRrdrOsE/Filas-4-Play-Project?node-id=18-82&p=f&t=kDCilC4wXi3JVHAS-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=18%3A82)
+👉 [Acesse o protótipo no Figma](https://www.figma.com/proto/OMzwqIzi4bEUnXrRrdrOsE/Filas-4-Play-Project?node-id=18-82&p=f&t=kDCilC4wXi3JVHAS-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=18%3A82)
 
 ---
 
