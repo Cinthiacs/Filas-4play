@@ -31,26 +31,26 @@ O app permite a criação e gestão de filas online para brinquedos do parque, f
 ### 🔐 Tela Principal
 - Login para usuário
 - Cadastro para novo usuário  
-![Tela Principal](CAMINHO_DA_IMAGEM)
+![Tela Principal](https://github.com/Cinthiacs/Filas-4play/blob/main/Captura%20de%20tela%202025-04-20%20184742.png?raw=true)
 
 ### 📝 Tela de Cadastro
 - Cadastro de novo usuário com nome, data de nascimento, email, senha e tipo de perfil (PCD, Idoso ou Visitante comum)  
-![Tela Cadastro](CAMINHO_DA_IMAGEM)
+![Tela Cadastro](https://github.com/Cinthiacs/Filas-4play/blob/main/Captura%20de%20tela%202025-04-20%20184726.png?raw=true)
 
 ### 🧾 Tela de Lista de Clientes
 - Exibe todos os usuários cadastrados (apenas para funcionários)  
-![Lista de Clientes](CAMINHO_DA_IMAGEM)
+![Lista de Clientes](https://github.com/Cinthiacs/Filas-4play/blob/main/Grava%C3%A7%C3%A3o-de-Tela-2025-04-20-173820.gif?raw=true)
 
 ### 🎡 Tela de Escolha do Brinquedo
 - Seleção do brinquedo para entrar na fila  
 - Logout do usuário  
-- Redefinição de senha  
-![Escolha do Brinquedo](CAMINHO_DA_IMAGEM)
-
+- Redefinição de senha
+  
 ### ⏳ Tela de Espera na Fila
 - Exibe a posição do usuário na fila  
-- Notifica com destaque quando for a vez do usuário  
-![Fila](CAMINHO_DA_IMAGEM)
+- Notifica com destaque quando for a vez do usuário
+  
+![Escolha do Brinquedo e Espera Fila](https://github.com/Cinthiacs/Filas-4play/blob/main/Grava%C3%A7%C3%A3o-de-Tela-2025-04-20-160910.gif?raw=true)
 
 ---
 
