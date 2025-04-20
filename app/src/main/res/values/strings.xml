@@ -31,7 +31,7 @@
     // Tela Home
     <string name="btn_logout">Logout</string>
     <string name="btn_redefinir_senha">Redefinir Senha</string>
-    <string name="txt_entrar_Fila">Entar na Fila</string>
+    <string name="txt_entrar_Fila">Entrar na Fila</string>
     <string name="cadastro_publico">Selecione o Publico:</string>
     <string-array name="publico_array">
         <item>Geral</item>
